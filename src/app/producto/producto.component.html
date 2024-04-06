@@ -1,0 +1,21 @@
+
+<h1>Productos de limpieza</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let producto of productos">
+        <th scope="row">{{producto.id}}</th>
+        <td>{{producto.name }}</td>
+        <td [ngClass]="{'red-color': producto.precio> 5}">{{producto.precio | currency}} </td>
+        <td><button class="btn btn-outline-primary" [routerLink]="['/producto', producto.id]">Detalle</button></td>
+      </tr>
+    
+  </tbody>
+</table>

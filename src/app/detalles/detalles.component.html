@@ -1,0 +1,31 @@
+<p>PRODUCTO: {{producto?.name | uppercase}}</p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th *ngIf="producto?.descripcion" scope="col">Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <th scope="row">{{producto?.id}}</th>
+        <td>{{producto?.name }}</td>
+        <td [ngStyle]="{'color': color}">{{producto?.precio | currency}} </td>
+        <ng-container *ngIf="!loading">
+            <td>{{producto?.descripcion}}</td>
+        </ng-container>
+        <ng-container *ngIf="loading">
+            <td style="color: red;">CARGANDO...</td>
+        </ng-container>
+      </tr>
+      
+    </tbody>
+  </table>
+
+<button (click)="navegar()" class="btn btn-primary">Ir a productos</button>
+
+
+
